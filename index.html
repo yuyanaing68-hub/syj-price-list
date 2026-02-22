@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>syJ Price List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="title">syJ Price List</div>
+  <div class="creator">Created by SAYARJOEEE</div>
+</header>
+
+<main>
+
+<section id="home">
+  <h2>Select Game</h2>
+  <div class="grid">
+    <button class="g1" onclick="openTable('pubg_uc')">PUBG UC Global</button>
+    <button class="g1" onclick="openTable('mlbb_brl')">MLBB BRL (Normal)</button>
+    <button class="g1" onclick="openTable('mlbb_ph')">MLBB PH (Mini)</button>
+    <button class="g1" onclick="openTable('mlbb_ban')">MLBB Ban (MY/SNG)</button>
+
+    <button class="g2" onclick="openTable('magic_chess')">Magic Chess Go Go</button>
+    <button class="g2" onclick="openTable('arena')">Arena Breakout</button>
+    <button class="g2" onclick="openTable('hok')">Honor of Kings</button>
+    <button class="g2" onclick="openTable('pubg_packs')">PUBG Packs</button>
+  </div>
+</section>
+
+<section id="table" class="hidden">
+
+  <button class="back-btn" onclick="goHome()">← Back</button>
+
+  <div class="controls">
+    <label>USDT / MMK Rate
+      <input id="rateInput" type="number" oninput="recalcPriceOnly()">
+    </label>
+
+    <label>Profit % (optional)
+      <input id="profitPercent" type="number" oninput="recalcPriceOnly()">
+    </label>
+
+    <button id="copyBtn" class="copy-btn" onclick="copyTable()">Copy</button>
+    <button id="saveBtn" class="save-btn" onclick="saveTable()">Save</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="col-num">Number</th>
+        <th class="col-uc">UC</th>
+        <th class="col-qty">Quantity</th>
+        <th class="col-og">Original Price</th>
+        <th class="col-profit">Profit</th>
+        <th class="col-sell">Sell Price</th>
+
+        <!-- ADD -->
+        <th class="col-sold">Sold Out</th>
+        <th class="col-earn">Earn</th>
+
+        <th class="col-remove">Remove Rows</th>
+      </tr>
+    </thead>
+
+    <tbody id="tbody"></tbody>
+
+    <!-- ADD -->
+    <tfoot>
+      <tr>
+        <td colspan="7" class="total-label">Total Earn</td>
+        <td id="totalEarn" class="col-earn">0</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <button onclick="addRow()">+ Add Row</button>
+
+</section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
